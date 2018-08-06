@@ -13,6 +13,8 @@ const jimp = require('jimp')
 const weather = require('weather-js');
 const prefix = "#";
 const adminprefix = "#";
+const admin = "#";
+const developers = ["316324088865882142","408136927259131905","418064523157700609"]
 
   
 
@@ -48,8 +50,6 @@ client.on('guildMemberAdd', member=> {
 //======================================[Owners]======================================
 
 
-const developers = ["316324088865882142","408136927259131905","418064523157700609"]
-const admin = "#";
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!developers.includes(message.author.id)) return;
