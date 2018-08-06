@@ -55,19 +55,19 @@ client.on('message', message => {
       
   if (message.content.startsWith(admin + 'ply')) {
     client.user.setGame(argresult);
-      message.channel.send(`**?   ${argresult}**`)
+      message.channel.send(`** :heart:  ${argresult}**`)
   }  else  
   if (message.content.startsWith(admin + 'wt')) {
   client.user.setActivity(argresult, {type:'WATCHING'});
-      message.channel.send(`**?   ${argresult}**`)
+      message.channel.send(`** :heart:  ${argresult}**`)
   } else 
   if (message.content.startsWith(admin + 'ls')) {
   client.user.setActivity(argresult , {type:'LISTENING'});
-      message.channel.send(`**?   ${argresult}**`)
+      message.channel.send(`** :heart:  ${argresult}**`)
   } else 
   if (message.content.startsWith(admin + 'st')) {
     client.user.setGame(argresult, "https://www.twitch.tv/idk");
-      message.channel.send(`**?**`)
+      message.channel.send(`** :heart:  **`)
   }
   if (message.content.startsWith(admin + 'setname')) {
   client.user.setUsername(argresult).then
