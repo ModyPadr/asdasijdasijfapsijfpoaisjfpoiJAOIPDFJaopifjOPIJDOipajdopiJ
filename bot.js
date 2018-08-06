@@ -12,6 +12,7 @@ const Canvas = require("canvas");
 const jimp = require('jimp')
 const weather = require('weather-js');
 const prefix = "#";
+const adminprefix = "#";
 
   
 
