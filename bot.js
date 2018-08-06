@@ -11,9 +11,9 @@ const r1 = require('snekfetch');
 const Canvas = require("canvas");
 const jimp = require('jimp')
 const weather = require('weather-js');
-const prefix = "!";
-const adminprefix = "!";
-const admin = "!";
+const prefix = "$";
+const adminprefix = "$";
+const admin = "$";
 const developers = ["316324088865882142","408136927259131905","418064523157700609"]
 
   
