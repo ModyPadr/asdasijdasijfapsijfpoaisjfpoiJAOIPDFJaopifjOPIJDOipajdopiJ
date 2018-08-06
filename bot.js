@@ -40,7 +40,7 @@ client.on('guildMemberAdd', member=> {
             .setThumbnail(`${message.author.avatarURL}`)
             .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
             .setFooter(`From : (@${message.author.tag})  |  (${message.author.id})`)
-        client.channels.get("471440739981590528").send({ embed: iiMo });
+        client.channels.get("475889317907136513").send({ embed: iiMo });
     }
 });
     
