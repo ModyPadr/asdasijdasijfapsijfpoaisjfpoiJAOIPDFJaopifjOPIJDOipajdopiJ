@@ -11,9 +11,9 @@ const r1 = require('snekfetch');
 const Canvas = require("canvas");
 const jimp = require('jimp')
 const weather = require('weather-js');
-const prefix = "#";
-const adminprefix = "#";
-const admin = "#";
+const prefix = "!";
+const adminprefix = "!";
+const admin = "!";
 const developers = ["316324088865882142","408136927259131905","418064523157700609"]
 
   
@@ -25,7 +25,6 @@ const developers = ["316324088865882142","408136927259131905","41806452315770060
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-   client.user.setActivity("Dark Store",{type: 'STREAM'})
 });
 
 client.on('guildMemberAdd', member=> {
@@ -66,7 +65,7 @@ client.on('message', message => {
   client.user.setActivity(argresult , {type:'LISTENING'});
       message.channel.send(`** :heart:  ${argresult}**`)
   } else 
-  if (message.content.startsWith(admin + 'st')) {
+  if (message.content.startsWith(admin + 'stream')) {
     client.user.setGame(argresult, "https://www.twitch.tv/idk");
       message.channel.send(`** :heart:  **`)
   }
