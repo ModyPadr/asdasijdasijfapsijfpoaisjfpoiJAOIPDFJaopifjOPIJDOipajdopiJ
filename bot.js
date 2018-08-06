@@ -80,18 +80,6 @@ if (message.content.startsWith(admin + 'setavatar')) {
 }
 });  
 
-client.on('message', message => {
-if(message.content === adminprefix + "restart") {
-      if (!devs.includes(message.author.id)) return;
-          message.channel.send(`⚠️ Restarting : ${message.author.username}`);
-        console.log(`⚠️ جاري اعادة تشغيل البوت... ⚠️`);
-        client.destroy();
-        child_process.fork(__dirname + "/bot.js");
-        console.log(`تم اعادة تشغيل البوت`);
-    }
-  
-  });
-
 
 //======================================[ Log ]======================================
 
