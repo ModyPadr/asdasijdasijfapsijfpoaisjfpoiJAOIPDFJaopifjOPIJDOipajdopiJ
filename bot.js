@@ -1018,5 +1018,173 @@ client.on("guildMemberAdd", member => {
 
 
 
+client.on('message', message => {
+    if (message.content.startsWith(prefix + "stats")) {
+    message.channel.send({
+        embed: new Discord.RichEmbed()
+            .setColor('RANDOM')
+            .setTitle('Stats Bot / Info ')
+            .addField('``Uptime``', timeCon(process.uptime()), true)
+            .addField('``Ping Is``' , `${Date.now() - message.createdTimestamp}` + '``Ms``', true)
+            .addField('``RAM Usage``', `${(process.memoryUsage().rss / 1048576).toFixed()}MB`, true)
+            .addField('``Guild Count``', client.guilds.size, true)
+            .addField('``Bot In channel``' , `${client.channels.size}` , true)
+            .addField('``Users rout``' ,`${client.users.size}` , true)
+            .addField('``Name Bot Or tag``' , `${client.user.tag}` , true)
+            .addField('``Bot Id``' , `${client.user.id}` , true)
+            .setFooter('SmiLeBoT / Team')
+    })
+}
+});
+
+
+function timeCon(time) {
+    let days = Math.floor(time % 31536000 / 86400)
+    let hours = Math.floor(time % 31536000 % 86400 / 3600)
+    let minutes = Math.floor(time % 31536000 % 86400 % 3600 / 60)
+    let seconds = Math.round(time % 31536000 % 86400 % 3600 % 60)
+    days = days > 9 ? days : '0' + days
+    hours = hours > 9 ? hours : '0' + hours
+    minutes = minutes > 9 ? minutes : '0' + minutes
+    seconds = seconds > 9 ? seconds : '0' + seconds
+    return `${days > 0 ? `${days}:` : ''}${(hours || days) > 0 ? `${hours}:` : ''}${minutes}:${seconds}`
+}
+
+
+client.on('ready', () => {
+    client.user.setStatus("dnd");
+ 
+ });
+
+client.on('message', function(message) {
+    if (!message.member.hasPermissions(['ADMINISTRATOR'])){
+            let command = message.content.split(" ")[0];
+        if(message.content.includes('discord.gg')){
+        message.reply (' ')
+           if(!message.channel.guild) return message.reply('** This command only for servers**');
+     message.member.addRole(message.guild.roles.find('name', 'Muted')); 
+    const embed500 = new Discord.RichEmbed()
+      .setTitle(":x: | تمت معاقبتك")
+            .setColor("c91616")
+            .setThumbnail(`${message.author.avatarURL}`)
+            .setAuthor(message.author.username, message.author.avatarURL) 
+        .setFooter(`${message.guild.name} Server`)
+     message.channel.send(embed500) 
+    
+        
+    }
+    }
+})
+
+
+client.on('message', message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+  
+ 
+
+if (command == "embed") {
+    let say = new Discord.RichEmbed()
+    .setDescription(args.join("  "))
+    .setColor(0x23b2d6)
+    message.channel.sendEmbed(say);
+    message.delete();
+  }
+
+
+});
+
+
+client.on('message', function(msg) {
+if(msg.content.startsWith (prefix  + 'server')) {
+ let embed = new Discord.RichEmbed()
+ .setColor('RANDOM')
+ .setThumbnail(msg.guild.iconURL)
+ .setTitle(`Showing Details Of  **${msg.guild.name}*`)
+ .addField(':globe_with_meridians:** نوع السيرفر**',`[** __${msg.guild.region}__ **]`,true)
+ .addField(':medal:** __الرتب__**',`[** __${msg.guild.roles.size}__ **]`,true)
+ .addField(':red_circle:**__ عدد الاعضاء__**',`[** __${msg.guild.memberCount}__ **]`,true)
+ .addField(':large_blue_circle:**__ عدد الاعضاء الاونلاين__**',`[** __${msg.guild.members.filter(m=>m.presence.status == 'online').size}__ **]`,true)
+ .addField(':pencil:**__ الرومات الكتابية__**',`[** __${msg.guild.channels.filter(m => m.type === 'text').size}__** ]`,true)
+ .addField(':microphone:**__ رومات الصوت__**',`[** __${msg.guild.channels.filter(m => m.type === 'voice').size}__ **]`,true)
+ .addField(':crown:**__ الأونـر__**',`**${msg.guild.owner}**`,true)
+ .addField(':id:**__ ايدي السيرفر__**',`**${msg.guild.id}**`,true)
+ .addField(':date:**__ تم عمل السيرفر في__**',msg.guild.createdAt.toLocaleString())
+ msg.channel.send({embed:embed});
+}
+});
+
+
+client.on('message', message => {
+if (message.content.startsWith(prefix + "uptime")) {
+   let uptime = client.uptime;
+
+   let days = 0;
+   let hours = 0;
+   let minutes = 0;
+   let seconds = 0;
+   let notCompleted = true;
+
+   while (notCompleted) {
+
+       if (uptime >= 8.64e+7) {
+
+           days++;
+           uptime -= 8.64e+7;
+
+       } else if (uptime >= 3.6e+6) {
+
+           hours++;
+           uptime -= 3.6e+6;
+
+       } else if (uptime >= 60000) {
+
+           minutes++;
+           uptime -= 60000;
+
+       } else if (uptime >= 1000) {
+           seconds++;
+           uptime -= 1000;
+
+       }
+
+       if (uptime < 1000)  notCompleted = false;
+
+   }
+
+   message.channel.send("`" + `${days} days, ${hours} hrs, ${minutes} min , ${seconds} sec` + "`");
+
+
+}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 client.login(process.env.BOT_TOKEN);
