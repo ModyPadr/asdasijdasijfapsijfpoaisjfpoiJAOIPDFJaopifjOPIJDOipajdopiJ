@@ -23,6 +23,28 @@ const developers = ["316324088865882142","408136927259131905","41806452315770060
 //======================================[Client]======================================
 
 
+client.on("ready", () => {
+    client.user.setPresence({
+      status: 'dnd',
+      game: { 
+         type: 0,
+         name: 'Surprise Mother Fucker :) ',
+         details: `I'm : End - Developer and Programmer`,
+         url: 'http://twitch.tv/Streammingg',
+         state: `إنْ لَمْ تَجِد لكْ حآقدْ إعلمْ أنْك إنسآن فآشِلْ`,
+        application_id: '281376075802476544',
+         assets: {
+            small_image: `366835431037337600`,
+            small_text: ' Take This ! ' ,
+            large_image: `370451271133429760`,
+		 large_text: `~ّEَgْy FOREVER ♥` }
+    
+      }
+        });
+    });
+    
+
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
