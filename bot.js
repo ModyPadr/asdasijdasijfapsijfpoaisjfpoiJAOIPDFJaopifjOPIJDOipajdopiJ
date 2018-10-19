@@ -471,7 +471,7 @@ ctx.font = '35px Aeland';
 })
 
 
-client.on('message', async message => {
+client.on('message', message => {
   let args = message.content.split(" ");
   if(message.content.startsWith(prefix + "mute")) {
     if(!message.member.hasPermission("MANAGE_ROLES")) return message.reply('**أنت لا تملك الخصائص اللازمة . يجب توفر خاصية `Manage Roles`**').then(msg => {
@@ -619,7 +619,7 @@ client.on('message', message => {
 
 
 
-client.on('message', async message => {
+client.on('message', message => {
     let args = message.content.split(" ");
     let command = args[0];
 
@@ -878,7 +878,7 @@ client.on('message', message => {
       const arraySort = require('array-sort'),
           table = require('table');
 
-client.on('message' , async (message) => {
+client.on('message' , (message) => {
 
     if(message.content.startsWith(prefix + "invites")) {
                  if(message.author.bot) return;
