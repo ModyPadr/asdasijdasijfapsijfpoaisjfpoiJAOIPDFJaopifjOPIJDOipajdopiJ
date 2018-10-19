@@ -884,7 +884,7 @@ client.on('message' , (message) => {
                  if(message.author.bot) return;
         if(!message.channel.guild) return message.reply(' Error : \` Guild Command \`');
 
-  var invites = await message.guild.fetchInvites();
+  var invites = message.guild.fetchInvites();
 
     invites = invites.array();
 
