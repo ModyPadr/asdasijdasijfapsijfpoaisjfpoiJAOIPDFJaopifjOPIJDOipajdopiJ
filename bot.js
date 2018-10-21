@@ -88,7 +88,7 @@ if (message.content.startsWith(admin + 'setavatar')) {
         message.guild.leave();        
       } else     
         if(message.content === adminprefix + "restart") {
-          if (!devs.includes(message.author.id)) return;
+          if(!devs.includes(message.author.id)) return;
               message.channel.send(`⚠️ **Bot restarting by ${message.author.username}**`);
             console.log("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             console.log(`⚠️ Bot restarting... ⚠️`);
@@ -99,11 +99,6 @@ if (message.content.startsWith(admin + 'setavatar')) {
         }
       
       });
-
-client.on('ready', () => {
-  client.channels.find(ch => ch.id === "503387189858533377" && ch.type === 'voice').join();
-});
-
 
 client.on('message', message => {
     if(!message.channel.guild) return;
