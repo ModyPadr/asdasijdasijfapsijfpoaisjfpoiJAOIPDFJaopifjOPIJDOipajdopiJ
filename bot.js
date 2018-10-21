@@ -645,39 +645,6 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
   
   
 //======================================[Commands]======================================
-
-client.on('message', message => {
-    if (message.content.startsWith("^avatar")) {
-        var mentionned = message.mentions.users.first();
-    var x5bzm;
-      if(mentionned){
-          var x5bzm = mentionned;
-      } else {
-          var x5bzm = message.author;
-          
-      }
-        const embed = new Discord.RichEmbed()
-        .setColor("RANDOM")
-        .setImage(`${x5bzm.avatarURL}`)
-      message.channel.sendEmbed(embed);
-    }
-});
-
-client.on("message", message => {
-
-            if (message.content.startsWith(prefix + "bc")) {
-                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-  let args = message.content.split(" ").slice(1);
-  var argresult = args.join(' '); 
-  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
- m.send(`${argresult}\n ${m}`);
-})
- message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`); 
- message.delete(); 
-};     
-});
-
-
 client.on('ready', () => {
    console.log(`----------------`);
       console.log(`Of Shop Server  By : | ! MohamedPadr.❤#1273`);
@@ -732,7 +699,7 @@ client.on('message', msg => {
 
 client.on('message', message => {
 
-    if (message.content === prefix + "mutechannel") {
+    if (message.content === prefix + "mc") {
                         if(!message.channel.guild) return message.reply(' This command only for servers');
 
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' ليس لديك صلاحيات');
@@ -744,7 +711,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' لي
            });
              }
 //™¦༺♚ƙἶղց|MaS♚༺¦™#7105
-if (message.content === prefix + "unmutechannel") {
+if (message.content === prefix + "umc") {
     if(!message.channel.guild) return message.reply(' This command only for servers');
 
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('ليس لديك صلاحيات');
