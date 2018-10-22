@@ -26,10 +26,9 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on('guildMemberAdd', member=> {
-  var guild = '502713112730796033';
-    member.addRole(member.guild.roles.find("name","➡ Costumer 💵"));
-    });
+client.on('guildMemberAdd', (member) => {
+member.addRole(member.guild.roles.find('name', 'Ģuest'));
+});
     
     client.on('message', function(message) {
     if (message.channel.type === "dm") {
