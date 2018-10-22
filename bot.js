@@ -21,6 +21,16 @@ const developers = ["316324088865882142","442762370448883720","20064416017953587
 
 
 //======================================[Client]======================================
+client.on('message',function(message) {
+let args = message.content.split(" ").slice(1).join(" ");
+if(message.content.startsWith(prefix + "say")) {
+  if (message.author.id !== '316324088865882142') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
+  if(!message.author.id === '316324088865882142') return;
+if(!args) return;
+message.channel.send(`**${args}**`);
+}
+});
+
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -651,7 +661,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : | ! MohamedPadr.❤#1273 ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`bc | ! MohamedPadr.❤#1273`,"http://twitch.tv/S-F")
+client.user.setGame(`ØF , Shop💰`,"http://twitch.tv/S-F")
 });
 
 client.on('message', message => {
